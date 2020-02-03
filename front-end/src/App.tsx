@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Card from './components/card/Card';
 import Landing from './components/landing/Landing';
 import './styles/App.css';
@@ -41,11 +41,20 @@ type AppState = {
 class App extends React.Component {
 
   state:AppState = {
-    searchString: ''
+    searchString: 'Roma'
+  }
+
+  handleSearchEvent = (event: any) => {
+      this.setState({searchString: event.target.value});
+      console.log(event.target.value);
   }
 
   searchBar = () => {
-
+    return (
+      <div className="search-zone">
+        <input className="search-bar" type="text" onChange={this.handleSearchEvent} />
+      </div>
+    )
   }
 
   render() {
@@ -54,10 +63,15 @@ class App extends React.Component {
           <div className="landing-page">
             <Landing/>
           </div>
+          {this.searchBar()}
           <div className="content">
-            {cards.map(item => {
-                return <Card destination={item.destination} cost={item.cost}></Card>
-            })}
+            {
+              cards
+                .filter(item => item.destination === this.state.searchString)
+                .map(item => {
+                  return <Card destination={item.destination} cost={item.cost}></Card>
+              })
+            }
           </div>
         </div>
       );
