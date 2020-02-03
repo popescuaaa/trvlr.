@@ -1,7 +1,6 @@
 import React from 'react';
 import '../../styles/Lading.css';
 
-
 class Lading extends React.Component{
     render() {
         return (

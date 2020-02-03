@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Card from './components/card/Card';
 import Landing from './components/landing/Landing';
 import './styles/App.css';
@@ -23,6 +23,14 @@ const cards = [
   {
       destination: 'Roma',
       cost: 125
+  },
+  {
+    destination: 'Bucharest',
+    cost: 20
+  },
+  {
+    destination: 'Istambul',
+    cost: 150
   }
 ];
 
