@@ -1,0 +1,29 @@
+.landing {
+    /**
+     Thre should be a folder in src called assets with images that 
+     are used in App.tsx direcly or indirectly.
+    */
+    background-image: url('../special_assets/background.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.brand {
+    margin-top: 300px;
+    width: 700px;
+    height: 100px;
+    opacity: 0.5;
+}
+
+.brand-name {
+    font-family: monospace;
+    font-size: xx-large;
+    text-align: center;
+    color: black;
+}
