@@ -34,18 +34,33 @@ const cards = [
   }
 ];
 
-const App = () => {
-  return (
-    <div className="app">
-      <div className="landing-page">
-        <Landing/>
-      </div>
-      <div className="content">
-        {cards.map(item => {
-            return <Card destination={item.destination} cost={item.cost}></Card>
-        })}
-      </div>
-    </div>
-  );
+type AppState = {
+  searchString: string
+}
+
+class App extends React.Component {
+
+  state:AppState = {
+    searchString: ''
+  }
+
+  searchBar = () => {
+
+  }
+
+  render() {
+      return (
+        <div className="app">
+          <div className="landing-page">
+            <Landing/>
+          </div>
+          <div className="content">
+            {cards.map(item => {
+                return <Card destination={item.destination} cost={item.cost}></Card>
+            })}
+          </div>
+        </div>
+      );
+    }
 }
 export default App;

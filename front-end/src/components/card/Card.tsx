@@ -1,5 +1,7 @@
 import React from 'react';
 import '../../styles/Card.css';
+
+
 type CardProps = {
     destination: string,
     cost: number
