@@ -41,7 +41,7 @@ type AppState = {
 class App extends React.Component {
 
   state:AppState = {
-    searchString: 'Roma'
+    searchString: ''
   }
 
   handleSearchEvent = (event: any) => {
@@ -52,7 +52,12 @@ class App extends React.Component {
   searchBar = () => {
     return (
       <div className="search-zone">
-        <input className="search-bar" type="text" onChange={this.handleSearchEvent} />
+      <div className="input-group mb-3">
+        <input type="text" className="form-control" placeholder="Search" onChange={this.handleSearchEvent}/>
+        <div className="input-group-append">
+          <button className="btn btn-success" type="submit">Go</button>
+        </div>
+      </div>
       </div>
     )
   }
@@ -62,12 +67,13 @@ class App extends React.Component {
         <div className="app">
           <div className="landing-page">
             <Landing/>
+             
           </div>
           {this.searchBar()}
           <div className="content">
             {
               cards
-                .filter(item => item.destination === this.state.searchString)
+                .filter(item => item.destination.toLowerCase === this.state.searchString.toLowerCase)
                 .map(item => {
                   return <Card destination={item.destination} cost={item.cost}></Card>
               })
