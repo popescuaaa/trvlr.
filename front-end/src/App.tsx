@@ -41,7 +41,7 @@ type AppState = {
 class App extends React.Component {
 
   state:AppState = {
-    searchString: ''
+    searchString: 'hello'
   }
 
   handleSearchEvent = (event: any) => {
