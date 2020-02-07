@@ -40,10 +40,13 @@ type AppState = {
 
 class App extends React.Component {
 
+  componentDidMount() {
+   
+  }
+  
   state:AppState = {
     searchString: ''
   }
-
 
   handleSearchEvent = (event: any) => {
       this.setState({searchString: event.target.value});
