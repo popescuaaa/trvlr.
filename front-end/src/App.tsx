@@ -44,9 +44,9 @@ class App extends React.Component {
     searchString: ''
   }
 
+
   handleSearchEvent = (event: any) => {
       this.setState({searchString: event.target.value});
-      console.log(event.target.value);
   }
 
   searchBar = () => {
@@ -67,13 +67,12 @@ class App extends React.Component {
         <div className="app">
           <div className="landing-page">
             <Landing/>
-             
           </div>
           {this.searchBar()}
           <div className="content">
             {
               cards
-                .filter(item => item.destination.toLowerCase === this.state.searchString.toLowerCase)
+                .filter(item => item.destination.toLowerCase().includes(this.state.searchString))
                 .map(item => {
                   return <Card destination={item.destination} cost={item.cost}></Card>
               })
