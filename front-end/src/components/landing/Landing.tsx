@@ -1,7 +1,18 @@
 import React from 'react';
 import '../../styles/Lading.css';
 
-class Lading extends React.Component{
+interface LandingState {
+    screenWidth: number,
+    screenHeight: number
+}
+
+class Lading extends React.Component<LandingState, {}>{
+
+    state:LandingState = {
+        screenWidth: window.innerWidth,
+        screenHeight: window.innerHeight
+    }
+    
     /**
      * Side menu for landing page 
      */
@@ -14,20 +25,30 @@ class Lading extends React.Component{
             </div>
             <div className="w3-bar-block">
                 <button  onClick={() => console.log('hello')} className="w3-bar-item w3-button w3-hover-white">Home</button> 
-                <button  onClick={() => console.log('hello')} className="w3-bar-item w3-button w3-hover-white">Showcase</button> 
+                <button  onClick={() => console.log('hello')} className="w3-bar-item w3-button w3-hover-white">About us</button> 
                 <button  onClick={() => console.log('hello')} className="w3-bar-item w3-button w3-hover-white">Services</button> 
-                <button  onClick={() => console.log('hello')} className="w3-bar-item w3-button w3-hover-white">Designers</button> 
-                <button  onClick={() => console.log('hello')} className="w3-bar-item w3-button w3-hover-white">Packages</button> 
+                <button  onClick={() => console.log('hello')} className="w3-bar-item w3-button w3-hover-white">Travel Blog</button> 
+                <button  onClick={() => console.log('hello')} className="w3-bar-item w3-button w3-hover-white">Login</button> 
                 <button  onClick={() => console.log('hello')} className="w3-bar-item w3-button w3-hover-white">Contact</button>
             </div>
             </nav>
         )
     }
 
+    /**
+     * Responsive small screens menu icon
+     */
+    topMenuSmallScreens = () => {
+        <header className="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+            <button className="w3-button w3-red w3-margin-right" onClick={() => console.log("small menu")}>☰</button>
+            <span>Company Name</span>
+        </header>
+    }
+
 
     render() {
         return (
-            <div className="landing">
+            <div className="main">
                 {this.sideMenu()}
             </div>
         )
