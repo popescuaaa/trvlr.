@@ -7,8 +7,5 @@
 
 .search-zone {
     width: 500px;
-    display: flex;
-    justify-content: center;
-    margin-left: 400px;
-    margin-top: 200px;
+    margin-left: 32%;
 }

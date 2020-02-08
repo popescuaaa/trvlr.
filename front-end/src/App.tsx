@@ -56,7 +56,7 @@ class App extends React.Component {
   searchBar = () => {
     return (
       <div className="search-zone">
-      <div className="input-group mb-3">
+      <div className="input-group mb-2  ">
         <input type="text" className="form-control" placeholder="Search" onChange={this.handleSearchEvent}/>
         <div className="input-group-append">
           <button className="btn btn-success" type="submit">Go</button>
@@ -69,19 +69,8 @@ class App extends React.Component {
   render() {
       return (
         <div className="app">
-            <Menu/>
           <div className="landing-page">
             <Landing/>
-          </div>
-          {this.searchBar()}
-          <div className="content">
-            {
-              cards
-                .filter(item => item.destination.toLowerCase().includes(this.state.searchString))
-                .map(item => {
-                  return <Card destination={item.destination} cost={item.cost}></Card>
-              })
-            }
           </div>
         </div>
       );

@@ -10,8 +10,6 @@
     background-size: cover;
     height: 100vh;
     width: 100%;
-    display: flex;
-    justify-content: center;
 }
 
 .brand {
@@ -26,4 +24,28 @@
     font-size: xx-large;
     text-align: center;
     color: black;
+}
+
+h1,h2,h3,h4,h5 {
+    font-family: "Poppins", sans-serif
+}
+.w3-half img{
+    margin-bottom:-6px;
+    margin-top:16px;
+    opacity:0.8;
+    cursor:pointer
+}
+.w3-half img:hover{
+    opacity:1
+}
+
+#main-sidebar {
+    z-index:3;
+    width:300px;
+    font-weight:bold;
+}
+
+#close-button {
+    width:100%;
+    font-size:22px;
 }
