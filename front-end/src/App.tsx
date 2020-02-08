@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from './components/card/Card';
 import Landing from './components/landing/Landing';
+import Menu from './components/menu/Menu';
 import './styles/App.css';
 
 /**
@@ -68,6 +69,7 @@ class App extends React.Component {
   render() {
       return (
         <div className="app">
+            <Menu/>
           <div className="landing-page">
             <Landing/>
           </div>
