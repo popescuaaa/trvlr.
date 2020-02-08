@@ -1,16 +1,42 @@
+/**
+ *  This is the main entry of the application
+ * 
+ */
 import React from 'react';
 import '../../styles/Lading.css';
 
-interface LandingState {
-    screenWidth: number,
-    screenHeight: number
+export enum Visibility {
+   Visibile, Invisible
+}
+
+export type LandingState = {
+    sideMenuVisibility: Visibility;
 }
 
 class Lading extends React.Component<LandingState, {}>{
 
     state:LandingState = {
-        screenWidth: window.innerWidth,
-        screenHeight: window.innerHeight
+        sideMenuVisibility: Visibility.Visibile
+    }
+
+    /**
+     * Performs an update to the state screenSize variable based 
+     * on window dimensions
+     */
+    updateDimensions = () => {
+        if(window.innerWidth < 600 || window.innerHeight < 500) {
+          this.setState({ sideMenuVisibility: Visibility.Invisible });
+        } else {
+            this.setState({ sideMenuVisibility: Visibility.Visibile });
+        }
+    }
+
+    /**
+     * -> Add an event for resposive menu
+     */
+    componentDidMount() {
+        this.updateDimensions();
+        window.addEventListener("resize", this.updateDimensions);
     }
     
     /**
@@ -35,21 +61,33 @@ class Lading extends React.Component<LandingState, {}>{
         )
     }
 
+
     /**
      * Responsive small screens menu icon
      */
     topMenuSmallScreens = () => {
-        <header className="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
-            <button className="w3-button w3-red w3-margin-right" onClick={() => console.log("small menu")}>☰</button>
-            <span>Company Name</span>
-        </header>
+        return (
+            <header className="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+                <button className="w3-button w3-hover-white w3-margin-right" onClick={() =>  console.log("hello")}>
+                    Login <i className="fas fa-male"></i>
+                </button>
+                <span><b><i className="fas fa-plane-departure"></i>GO Travel</b></span>
+            </header>
+        )
     }
 
+    renderMenu = () => {
+        if(this.state.sideMenuVisibility === Visibility.Visibile) {
+            return this.sideMenu();
+        } else {
+            return this.topMenuSmallScreens();
+        }
+    }
 
     render() {
         return (
             <div className="main">
-                {this.sideMenu()}
+                {this.renderMenu()}
             </div>
         )
     }

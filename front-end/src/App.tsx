@@ -1,7 +1,7 @@
 import React from 'react';
-import Card from './components/card/Card';
+import { Visibility } from './components/landing/Landing';
 import Landing from './components/landing/Landing';
-import Menu from './components/menu/Menu';
+
 import './styles/App.css';
 
 /**
@@ -70,7 +70,7 @@ class App extends React.Component {
       return (
         <div className="app">
           <div className="landing-page">
-            <Landing/>
+            <Landing sideMenuVisibility={Visibility.Visibile}/>
           </div>
         </div>
       );
