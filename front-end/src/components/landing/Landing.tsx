@@ -4,6 +4,8 @@
  */
 import React from "react";
 import "../../styles/Lading.css";
+import { Router, Route } from 'react-router';
+
 
 export enum Visibility {
   Visibile,
@@ -13,6 +15,7 @@ export enum Visibility {
 export type LandingState = {
   sideMenuVisibility: Visibility;
 };
+
 
 class Lading extends React.Component<LandingState, {}> {
   state: LandingState = {
