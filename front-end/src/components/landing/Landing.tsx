@@ -155,12 +155,6 @@ class Lading extends React.Component<LandingState, {}> {
             onClick={() => console.log("hello")}
             className="w3-bar-item w3-button w3-hover-white"
           >
-            Travel Blog
-          </button>
-          <button
-            onClick={() => console.log("hello")}
-            className="w3-bar-item w3-button w3-hover-white"
-          >
             Login <i className="fas fa-male"></i>
           </button>
           <button
