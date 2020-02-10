@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Services extends React.Component<{}, {}> {
+class Offert extends React.Component<{}, {}> {
     render() {
         return (
             <h1>
@@ -10,4 +10,4 @@ class Services extends React.Component<{}, {}> {
     }
   }
   
-  export default Services;
+  export default Offert;
