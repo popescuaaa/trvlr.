@@ -34,15 +34,11 @@ class Lading extends React.Component<{}, LandingState> {
     }
   };
 
-
   processData = async () => {
     let data: Article[] = await newsProcessor();
     this.setState({content: data});
   }
 
-  /**
-   * -> Add an event for resposive menu
-   */
   componentDidMount() {
     this.updateDimensions();
     this.processData();
