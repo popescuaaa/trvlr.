@@ -6,17 +6,11 @@
  */
 import React from "react";
 import "../../styles/Lading.css";
+import { newsProcessor, Article} from './services/newsService';
 
 export enum Visibility {
   Visibile,
   Invisible
-}
-
-export type Article = {
-  author: string;
-  title: string;
-  description: string;
-  content: string;
 }
 
 export type LandingState = {
@@ -24,16 +18,12 @@ export type LandingState = {
   content: Article[];
 };
 
-class Lading extends React.Component<LandingState, {}> {
+class Lading extends React.Component<{}, LandingState> {
   state: LandingState = {
     sideMenuVisibility: Visibility.Visibile,
     content: []
   };
 
-  /**
-   * Performs an update to the state screenSize variable based
-   * on window dimensions
-   */
   updateDimensions = () => {
     if (window.innerWidth < 600 || window.innerHeight < 500) {
       this.setState({ sideMenuVisibility: Visibility.Invisible });
@@ -42,41 +32,10 @@ class Lading extends React.Component<LandingState, {}> {
     }
   };
 
-  getArticles = async () => {
-    let date = new Date().toISOString().slice(0,10);
-    let topic = 'travel';
-    const API_KEY = 'aa2197669263422d9d2b829c3fbc797f';
-    let url = `https://newsapi.org/v2/everything?q=${topic}&from=${date}&sortBy=popularity&apiKey=${API_KEY}`;
-    let req = new Request(url);
-    let data = await fetch(req)
-        .then((response) => {
-           return response;
-        });
-    return data;
-  }
 
   processData = async () => {
-    let data = await this.getArticles();
-    let articlesArray = (await data.json()).articles;
-    let articles: Article[] = [];
-
-    for (let i = 0; i < articlesArray.length; i++) {
-      let article: Article;
-      let title = articlesArray[i].title;
-      let author = articlesArray[i].author;
-      let description = articlesArray[i].description;
-      let content = articlesArray[i].content;
-      article = {
-        title: title,
-        description: description,
-        author: author,
-        content: content
-      }
-
-      articles.push(article);
-    }
-
-    this.setState({content: articles});
+    let data: Article[] = await newsProcessor();
+    this.setState({content: data});
   }
 
   /**

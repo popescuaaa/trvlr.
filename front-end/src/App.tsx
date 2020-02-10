@@ -9,7 +9,7 @@ class App extends React.Component {
       return (
         <div className="app">
           <div className="landing-page">
-            <Landing sideMenuVisibility={Visibility.Visibile} content={[]}/>
+            <Landing/>
           </div>
         </div>
       );
