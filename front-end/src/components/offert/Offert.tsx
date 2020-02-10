@@ -4,7 +4,7 @@ class Offert extends React.Component<{}, {}> {
     render() {
         return (
             <h1>
-                Services
+                Services from menu d'oh
             </h1>
         )
     }
