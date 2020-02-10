@@ -1,10 +1,11 @@
 /**
  *  This is the main entry of the application
+ *  Must be splited into multiple components and 
+ *  try to remove as much as posible the logic.
  *
  */
 import React from "react";
 import "../../styles/Lading.css";
-import { Router, Route } from "react-router";
 
 export enum Visibility {
   Visibile,
@@ -22,9 +23,6 @@ export type LandingState = {
   sideMenuVisibility: Visibility;
   content: Article[];
 };
-
-
-
 
 class Lading extends React.Component<LandingState, {}> {
   state: LandingState = {
@@ -100,13 +98,6 @@ class Lading extends React.Component<LandingState, {}> {
         id="main-sidebar"
       >
         <br />
-        <button
-          onClick={() => console.log("hello")}
-          className="w3-button w3-hide-large w3-display-topleft"
-          id="close-button"
-        >
-          Close Menu
-        </button>
         <div className="w3-container">
           <h3 className="w3-padding-64">
             <b>
@@ -132,7 +123,13 @@ class Lading extends React.Component<LandingState, {}> {
             </a> 
           </div>
         </div>
+
+        {/*
+          The routing process for all the other entries of the program
+        */}
+
         <div className="w3-bar-block">
+        
           <button
             onClick={() => console.log("hello")}
             className="w3-bar-item w3-button w3-hover-white"
@@ -163,6 +160,7 @@ class Lading extends React.Component<LandingState, {}> {
           >
             Contact
           </button>
+          
         </div>
       </nav>
     );
