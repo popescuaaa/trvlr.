@@ -9,6 +9,7 @@ import "../../styles/Lading.css";
 import { newsProcessor, Article} from './services/newsService';
 import SideMenu from '../menu/SideMenu';
 import TopMenu from '../menu/TopMenu';
+import ArtcileComponent from '../article/Article';
 
 export enum Visibility {
   Visibile,
@@ -54,31 +55,7 @@ class Lading extends React.Component<{}, LandingState> {
   };
 
   generateArticleFormat = (article: Article) => {
-    return (
-      <div className="w3-container w3-white w3-margin w3-padding-large">
-        <div className="w3-center">
-          <h3>{article.title}</h3>
-        </div>
-
-        <div className="w3-justify">
-          <p>
-           {article.description}
-          </p>
-          <p>
-            {article.content}
-          </p>
-          <p className="w3-clear"></p>
-          <div className="w3-row w3-margin-bottom" id="demo1">
-            <div className="w3-col l2 m3"></div>
-            <div className="w3-col l10 m9">
-              <h4>
-                {article.author}
-              </h4>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+    return <ArtcileComponent artcile={article}/>
   };
 
   renderPageContent = () => {
