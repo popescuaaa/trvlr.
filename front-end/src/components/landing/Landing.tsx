@@ -1,9 +1,3 @@
-/**
- *  This is the main entry of the application
- *  Must be splited into multiple components and 
- *  try to remove as much as posible the logic.
- *
- */
 import React from "react";
 import "../../styles/Lading.css";
 import { newsProcessor, Article} from './services/newsService';
