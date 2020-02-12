@@ -8,7 +8,7 @@ export type ArticleComponentProps = {
 class ArticleComponent extends React.Component<ArticleComponentProps, {}> {
    render() {
        return (
-        <div className="w3-container w3-white w3-margin w3-padding-large">
+        <div className="w3-container w3-white w3-margin w3-padding-large w3-border">
         <div className="w3-center">
           <h3>{this.props.artcile.title}</h3>
         </div>
@@ -20,7 +20,7 @@ class ArticleComponent extends React.Component<ArticleComponentProps, {}> {
             {this.props.artcile.content}
           </p>
           <p className="w3-clear"></p>
-          <div className="w3-row w3-margin-bottom" id="demo1">
+          <div className="w3-row w3-margin-bottom">
             <div className="w3-col l2 m3"></div>
             <div className="w3-col l10 m9">
               <h4>

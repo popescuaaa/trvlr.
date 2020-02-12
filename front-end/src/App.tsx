@@ -1,5 +1,4 @@
 import React from 'react';
-import { Visibility } from './components/landing/Landing';
 import Landing from './components/landing/Landing';
 
 import './styles/App.css';
