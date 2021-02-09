@@ -1,8 +1,6 @@
-# YGO the next travel assistant
----
-![](landing.PNG)
+# trvlr.
+![](logo.PNG) 
 
-### Travel has become a really important stage of our lives and having a platform ajusted for your needs and preferences is something delightful
+# The travelers network
 
-## TODO: still in development
 
